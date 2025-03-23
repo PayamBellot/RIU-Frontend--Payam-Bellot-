@@ -1,0 +1,58 @@
+<div class="add-button">
+  <span>Add Hero</span>
+  <button (click)="addHero()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="search-bar">
+  <mat-form-field class="searchBox" appearance="outline">
+    <mat-label>Search hero</mat-label>
+    <input matInput (input)="onFilterChange($event)" [value]="filterName()" />
+  </mat-form-field>
+</div>
+
+<div class="grid-container">
+  <mat-grid-list cols="6">
+    @for (hero of paginatedHeroes(); track $index) {
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ hero.alterEgo }}</mat-card-title>
+          <mat-card-subtitle>
+            {{ hero.firstName }} {{ hero.lastName }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Universe: {{ hero.universe }}</span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="viewHeroDetail(hero)"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          <button mat-button (click)="editHero(hero)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-button (click)="deleteHero(hero)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    }
+  </mat-grid-list>
+</div>
+
+<mat-paginator
+  [length]="totalHeroes()"
+  [pageSize]="pageSize()"
+  [pageIndex]="pageIndex()"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

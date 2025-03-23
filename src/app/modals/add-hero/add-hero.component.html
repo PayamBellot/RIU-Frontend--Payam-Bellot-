@@ -1,0 +1,54 @@
+@if(!data.hero){
+<h1 mat-dialog-title>Add New Hero</h1>
+} @if(data.hero) {
+<h1 mat-dialog-title>Modify Hero</h1>
+}
+
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        appUppercase
+        [(ngModel)]="hero.firstName"
+        name="firstName"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        appUppercase
+        [(ngModel)]="hero.lastName"
+        name="lastName"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Alter Ego</mat-label>
+      <input
+        matInput
+        appUppercase
+        [(ngModel)]="hero.alterEgo"
+        name="alterEgo"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Universe</mat-label>
+      <input
+        matInput
+        appUppercase
+        [(ngModel)]="hero.universe"
+        name="universe"
+      />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save()">Save</button>
+</mat-dialog-actions>

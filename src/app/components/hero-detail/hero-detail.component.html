@@ -1,0 +1,17 @@
+@if (hero()) {
+<mat-card class="hero-detail-card">
+  <mat-card-header>
+    <mat-card-title class="hero-name"
+      >{{ hero()!.firstName }} {{ hero()!.lastName }}</mat-card-title
+    >
+    <mat-card-subtitle class="hero-universe"
+      >Universe: {{ hero()!.universe }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content class="hero-alter">
+    <span>Alter Ego: {{ hero()!.alterEgo }}</span>
+  </mat-card-content>
+  <img [src]="hero()!.image" />
+</mat-card>
+
+}

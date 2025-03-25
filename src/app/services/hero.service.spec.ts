@@ -2,14 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { HeroService } from './hero.service';
 import { Hero } from '../models/hero';
 import { HEROES } from '../db/heroes';
-import {
-  MatDialog,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { of } from 'rxjs';
-import { AddHeroComponent } from '../modals/add-hero/add-hero.component';
 
 describe('HeroService', () => {
   let service: HeroService;

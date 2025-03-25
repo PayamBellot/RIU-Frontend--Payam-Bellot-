@@ -4,13 +4,10 @@ import {
   MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogContent,
+  MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
-import {
-  MatFormField,
-  MatFormFieldModule,
-  MatLabel,
-} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { UppercaseDirective } from '../../directives/uppercase.directive';
@@ -19,16 +16,12 @@ import { SpinnerService } from '../../services/spinner.service';
 @Component({
   selector: 'app-add-hero',
   imports: [
-    UppercaseDirective,
-    MatDialogContent,
-    MatFormField,
-    MatLabel,
+    MatDialogModule,
     FormsModule,
-    MatDialogActions,
     MatInputModule,
     MatFormFieldModule,
+    UppercaseDirective,
   ],
-  providers: [MatDialogRef],
   templateUrl: './add-hero.component.html',
   styleUrl: './add-hero.component.scss',
 })

@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { Hero } from '../../models/hero';
 import { MatIcon } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddHeroComponent } from '../../modals/add-hero/add-hero.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-heroes',
   imports: [
+    MatDialogModule,
     MatPaginatorModule,
     MatGridListModule,
     MatCardModule,

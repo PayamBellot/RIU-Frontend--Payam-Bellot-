@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ConfirmActionComponent } from '../../modals/confirm-action/confirm-action.component';
+import { CONFIRM_MSG } from '../../modals/confirm-action/modal-msg';
+import { ConfirmComponent } from '../../modals/confirm/confirm.component';
 
 @Component({
   selector: 'app-heroes',
@@ -60,6 +63,9 @@ export class HeroesComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.heroService.addHero(result);
+        this.dialog.open(ConfirmComponent, {
+          data: { msg: CONFIRM_MSG.ADD_HERO },
+        });
       }
     });
   }
@@ -75,16 +81,25 @@ export class HeroesComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.heroService.updateHero(result);
+        this.dialog.open(ConfirmComponent, {
+          data: { msg: CONFIRM_MSG.UPDATE_HERO },
+        });
       }
     });
   }
 
   deleteHero(hero: Hero) {
-    const confirmDelete = confirm('Are you sure you want to delete this hero?');
-    if (confirmDelete) {
-      this.heroService.deleteHero(hero.id);
-      alert('Hero deleted successfully');
-    }
+    const dialogRef = this.dialog.open(ConfirmActionComponent, {
+      data: { hero: hero },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.heroService.deleteHero(result.id);
+        this.dialog.open(ConfirmComponent, {
+          data: { msg: CONFIRM_MSG.DELETE_HERO },
+        });
+      }
+    });
   }
 
   onPageChange(event: any) {

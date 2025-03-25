@@ -1,0 +1,31 @@
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #1e1e2f;
+    color: #f4f4f9;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  button {
+    background-color: #ff6f61;
+    color: #f4f4f9;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 5px 15px;
+  }
+  
+  button:hover {
+    background-color: #cc564c;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #ffcc00;
+  }
+  

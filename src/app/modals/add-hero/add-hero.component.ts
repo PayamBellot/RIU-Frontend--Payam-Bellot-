@@ -2,8 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Hero } from '../../models/hero';
 import {
   MAT_DIALOG_DATA,
-  MatDialogActions,
-  MatDialogContent,
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
@@ -54,7 +52,7 @@ export class AddHeroComponent {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+      this.dialogRef.close(this.hero);
     }, 3000);
-    this.dialogRef.close(this.hero);
   }
 }

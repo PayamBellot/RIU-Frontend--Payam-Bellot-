@@ -20,6 +20,10 @@ import { SpinnerService } from '../../services/spinner.service';
     MatFormFieldModule,
     UppercaseDirective,
   ],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   templateUrl: './add-hero.component.html',
   styleUrl: './add-hero.component.scss',
 })

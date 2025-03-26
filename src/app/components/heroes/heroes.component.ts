@@ -59,12 +59,14 @@ export class HeroesComponent {
   addHero() {
     const dialogRef = this.dialog.open(AddHeroComponent, {
       data: { hero: null },
+      disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.heroService.addHero(result);
         this.dialog.open(ConfirmComponent, {
           data: { msg: CONFIRM_MSG.ADD_HERO },
+          disableClose: true,
         });
       }
     });
@@ -77,12 +79,14 @@ export class HeroesComponent {
   editHero(hero: Hero) {
     const dialogRef = this.dialog.open(AddHeroComponent, {
       data: { hero: hero },
+      disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.heroService.updateHero(result);
         this.dialog.open(ConfirmComponent, {
           data: { msg: CONFIRM_MSG.UPDATE_HERO },
+          disableClose: true,
         });
       }
     });
@@ -91,12 +95,14 @@ export class HeroesComponent {
   deleteHero(hero: Hero) {
     const dialogRef = this.dialog.open(ConfirmActionComponent, {
       data: { hero: hero },
+      disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.heroService.deleteHero(result.id);
         this.dialog.open(ConfirmComponent, {
           data: { msg: CONFIRM_MSG.DELETE_HERO },
+          disableClose: true,
         });
       }
     });

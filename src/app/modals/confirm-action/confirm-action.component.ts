@@ -11,10 +11,6 @@ import { SpinnerService } from '../../services/spinner.service';
 @Component({
   selector: 'app-confirm-action',
   imports: [MatDialogModule],
-  providers: [
-    { provide: MatDialogRef, useValue: {} },
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-  ],
   templateUrl: './confirm-action.component.html',
   styleUrl: './confirm-action.component.scss',
 })

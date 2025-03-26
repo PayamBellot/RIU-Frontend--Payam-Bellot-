@@ -8,10 +8,6 @@ import {
 @Component({
   selector: 'app-confirm',
   imports: [MatDialogModule],
-  providers: [
-    { provide: MatDialogRef, useValue: {} },
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-  ],
   templateUrl: './confirm.component.html',
   styleUrl: './confirm.component.scss',
 })

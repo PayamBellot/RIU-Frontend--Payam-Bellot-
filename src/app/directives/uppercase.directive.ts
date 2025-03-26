@@ -10,6 +10,6 @@ export class UppercaseDirective {
   onInput(event: Event): void {
     const input = this.el.nativeElement as HTMLInputElement;
     const value = input.value;
-    input.value = value.charAt(0).toUpperCase() + value.slice(1);
+    input.value = value.toUpperCase();
   }
 }
